@@ -5,6 +5,8 @@ var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 
+var browserSync = require('browser-sync');
+
 // compile scss to css
 gulp.task('sass', function () {
     return gulp.src('./sass/styles.scss')
@@ -28,3 +30,15 @@ gulp.task('minify-js', function () {
 
 // default task
 gulp.task('default', ['sass', 'minify-js']);
+
+gulp.task('browserSync', function() {
+    browserSync.init({
+        server: {
+            baseDir: './'
+        }
+    })
+})
+
+gulp.task('watch', ['browserSync'], function() {
+    gulp.watch(['./index.html', './js/scripts.js', './sass/**/*.scss'], ['minify-js', 'sass', browserSync.reload]);
+})
