@@ -36,3 +36,4 @@ typings/
 .sass-cache/
 *.css.map
 node_modules
+build

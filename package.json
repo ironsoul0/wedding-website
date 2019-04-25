@@ -6,6 +6,7 @@
   "main": "npmfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "./node_modules/gulp/bin/gulp.js build",
     "deploy": "gh-pages -d build"
   },
   "keywords": [

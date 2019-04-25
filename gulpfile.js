@@ -42,3 +42,14 @@ gulp.task('browserSync', function() {
 gulp.task('watch', ['browserSync'], function() {
     gulp.watch(['./index.html', './js/scripts.js', './sass/**/*.scss'], ['minify-js', 'sass', browserSync.reload]);
 })
+
+gulp.task('build', ['minify-js', 'sass'], function() {
+    return gulp.src([
+        './**/*',         //select all files
+        '!./**/node*/',      //exclude folders starting with '_'
+        '!./**/node*/**/*',  //exclude files/subfolders in folders starting with '_'
+        '!./**/sass*/',      //exclude folders starting with '_'
+        '!./**/sass*/**/*',  //exclude files/subfolders in folders starting with '_'
+    ])
+    .pipe(gulp.dest('build'));
+})
