@@ -1,0 +1,35 @@
+{
+  "name": "wedding-website",
+  "version": "1.0.0",
+  "description": "A wedding website with loads of features.",
+  "homepage": "https://ironsoul0.github.io/wedding-website",
+  "main": "npmfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "./node_modules/gulp/bin/gulp.js build",
+    "deploy": "gh-pages -d build"
+  },
+  "keywords": [
+    "wedding",
+    "template",
+    "website template"
+  ],
+  "author": "Ram Patra",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gh-pages": "^2.0.1",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlclean": "^2.7.22",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.2"
+  },
+  "dependencies": {
+    "animate.css": "^3.5.2",
+    "font-awesome": "^4.7.0",
+    "waypoints": "^4.0.1"
+  }
+}
