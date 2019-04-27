@@ -211,16 +211,17 @@ $(document).ready(function () {
     $('#rsvp-form').on('submit', function (e) {
         e.preventDefault();
         var data = $(this).serialize();
+        console.log('kek ', data);
 
         $('#alert-wrapper').html(alert_markup('info', '<strong>Один момент!</strong> Мы сохраняем Вашу информацию.'));
 
-        if (MD5($('#invite_code').val()) !== 'b0e53b10c1f55ede516b240036b88f40'
-            && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
+        if (MD5($('#invite_code').val()) !== '96b056e8c378e6f9526c8ae053bbacf4'
+            ) {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>Упс!</strong> Код оказался неправильным.'));
+            console.log('MD5 is ', MD5($('#invite_code').val()));
         } else {
-            $.post('https://script.google.com/macros/s/AKfycbzUqz44wOat0DiGjRV1gUnRf4HRqlRARWggjvHKWvqniP7eVDG-/exec', data)
+            $.post('https://script.google.com/macros/s/AKfycbzLr5S255oJIgKP9mQr7ZkJQWv60hUlBCip8DfMf94RHdSifoPf/exec', data)
                 .done(function (data) {
-                    console.log(data);
                     $('#alert-wrapper').html('');
                     $('#rsvp-modal').modal('show');
                 })
