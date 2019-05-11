@@ -211,16 +211,25 @@ $(document).ready(function () {
     $('#rsvp-form').on('submit', function (e) {
         e.preventDefault();
         var data = $(this).serialize();
+        console.log('kek ', data);
 
         $('#alert-wrapper').html(alert_markup('info', '<strong>Один момент!</strong> Мы сохраняем Вашу информацию.'));
+        var qyz_hash = '96b056e8c378e6f9526c8ae053bbacf4';
+        var toy_hash = '7924086849cceb73a55ae2ef21f5f6bd';
+        var cur_hash = MD5($('#invite_code').val());
+        console.log('cur_hash ', cur_hash === toy_hash);
 
-        if (MD5($('#invite_code').val()) !== 'b0e53b10c1f55ede516b240036b88f40'
-            && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
+        if (cur_hash !== qyz_hash && cur_hash !== toy_hash
+            ) {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>Упс!</strong> Код оказался неправильным.'));
+            console.log('MD5 is ', MD5($('#invite_code').val()));
         } else {
-            $.post('https://script.google.com/macros/s/AKfycbzUqz44wOat0DiGjRV1gUnRf4HRqlRARWggjvHKWvqniP7eVDG-/exec', data)
+            var post_url = 'https://script.google.com/macros/s/AKfycbzLr5S255oJIgKP9mQr7ZkJQWv60hUlBCip8DfMf94RHdSifoPf/exec';
+            if (cur_hash === toy_hash) {
+                post_url = 'https://script.google.com/macros/s/AKfycbxI3agYSZOer3-uRR6I-N1f8pYxRP5PVktFFi9jaA/exec';
+            }
+            $.post(post_url, data)
                 .done(function (data) {
-                    console.log(data);
                     $('#alert-wrapper').html('');
                     $('#rsvp-modal').modal('show');
                 })
