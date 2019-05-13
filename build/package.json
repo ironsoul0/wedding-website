@@ -2,7 +2,7 @@
   "name": "wedding-website",
   "version": "1.0.0",
   "description": "A wedding website with loads of features.",
-  "homepage": "https://ironsoul0.github.io/wedding-website",
+  "homepage": "https://ironsoul0.github.io/",
   "main": "npmfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
