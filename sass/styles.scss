@@ -259,7 +259,7 @@ Hero
 
 .hero {
   min-height: 750px;
-  background: url('../img/my-hero.jpeg') center center;
+  background: url('../img/eng_pics/image-min.jpg') center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -300,9 +300,12 @@ Hero
 }
 .fixed {
   position: fixed;
-  background-color: rgba(31, 31, 33, 0.8);
+  background-color: rgba(96, 100, 104, 0.8);
   z-index: 999;
   width: 100%;
+}
+.hero__logo {
+  margin-top: 40px;
 }
 header {
   padding: 50px 0;
@@ -570,7 +573,6 @@ Features-stack
   .time {
     font-size: 13px;
     font-style: italic;
-    text-transform: lowercase;
     color: $txt-primary;
   }
 }
