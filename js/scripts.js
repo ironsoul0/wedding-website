@@ -219,10 +219,10 @@ $(document).ready(function () {
         var cur_hash = MD5($('#invite_code').val());
         console.log('cur_hash ', cur_hash === toy_hash);
 
-        if (cur_hash !== qyz_hash && cur_hash !== toy_hash
+        if (cur_hash !== toy_hash
             ) {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>Упс!</strong> Код оказался неправильным.'));
-            console.log('MD5 is ', MD5($('#invite_code').val()));
+            console.log('MD2 is ', MD5($('#invite_code').val()));
         } else {
             var post_url = 'https://script.google.com/macros/s/AKfycbzLr5S255oJIgKP9mQr7ZkJQWv60hUlBCip8DfMf94RHdSifoPf/exec';
             if (cur_hash === toy_hash) {
